@@ -1,28 +1,61 @@
 import React, { useState, useEffect } from 'react';
-import { getTheorems } from '../../../services/theoremService';
-import { Theorem } from '../../../types/theorem';
-import { TheoremPanel } from '../TheoremPanel';
+import MathJax from 'react-mathjax2';
+import { QuizQuestion, generateQuestion } from '../../../quiz/questionGenerator';
+import { ComplexText } from '../../ComplexText';
+import { QuizOptionComponent } from './QuizOptionComponent';
+import './QuizQuestionPanel.scss';
 
 export function QuizQuestionPanel() {
-    const [ theorems, setTheorems ] = useState<Theorem[]>([]);
+    const [ question, setQuestion ] = useState<QuizQuestion>();
+    const [ selectedAnswer, setSelectedAnswer ] = useState<number>(-1);
+
+    const onAnswerSelected = (option: number) => {
+        setSelectedAnswer(option);
+    };
+
+    const onNextQuestion = () => {
+        setSelectedAnswer(-1);
+        (async () => {
+            setQuestion(await generateQuestion());
+        })();
+    };
 
     useEffect(() => {
         (async () => {
-            const array = await getTheorems();
-            setTheorems(array);
-            // setTheorems(array.slice(array.length - 4));
+            setQuestion(await generateQuestion());
         })();
     }, []);
 
-    const theoremList = theorems.map(theorem => (
-        <TheoremPanel key={theorem.key} theorem={theorem}></TheoremPanel>
-    ));
+    if (!question)
+        return (<div className="QuizQuestionPanel"></div>);
 
     return (
-        <div>
-            <div>
-                { theoremList }
+        <MathJax.Context input="ascii" options={ {
+            asciimath2jax: {
+                useMathMLspacing: true,
+                delimiters: [[ "$$","$$" ]],
+                preview: "none",
+            }
+        } }>
+        <div className="QuizQuestionPanel">
+            <div className="QuizQuestionPanel-question">
+                { question.desc.map((line, index) => <ComplexText key={index} text={line} />) }
             </div>
+            <div className="QuizQuestionPanel-options">
+                {
+                    question.options.map((q, index) => (
+                        <QuizOptionComponent
+                            key={index}
+                            desc={q.desc}
+                            onClick={() => onAnswerSelected(index)}
+                            correct={selectedAnswer != -1 && index == question.correctOption}
+                            wrong={selectedAnswer == index && selectedAnswer != question.correctOption}
+                        />
+                    ))
+                }
+            </div>
+            <button type="button" className="QuizQuestionPanel-next-button" onClick={onNextQuestion}>Następne pytanie</button>
         </div>
+        </MathJax.Context>
     );
 }

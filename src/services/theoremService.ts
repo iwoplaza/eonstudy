@@ -180,3 +180,7 @@ const theorems: Theorem[] = [
 export function getTheorems(): Promise<Theorem[]> {
     return Promise.resolve(theorems);
 }
+
+export function getRandomTheorem(): Promise<Theorem> {
+    return Promise.resolve(theorems[Math.floor(Math.random() * theorems.length)]);
+}
