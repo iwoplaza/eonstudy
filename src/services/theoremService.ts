@@ -14,12 +14,13 @@ const theorems: Theorem[] = [
             'Całka Riemanna funkcji f na przedziale [a,b] jest równa całce oznaczonej (w sensie Newtona) na [a,b].',
             '$$ int_a^b f(x)dx = F(b)-F(a) $$',
         ],
+        important: true,
     },
     {
         key: 1,
         category: [ 'integrals' ],
         prereqs: [
-            'P - przedział',
+            '$$P$$ - przedział',
             '$$ f,g: P |-> RR $$',
             '$$ vvv_(x in P) 0 <= f(x) <= g(x) $$'
         ],
@@ -27,23 +28,26 @@ const theorems: Theorem[] = [
         thesis: [
             'Jeśli istnieje całka $$ int_P g(x)dx $$, to istnieje również $$ int_P f(x)dx $$',
         ],
+        important: true,
     },
     {
         key: 2,
         category: [ 'integrals' ],
+        name: 'O całkowaniu przez podstawienie dla całek oznaczonych',
         prereqs: [
             '$$ f: C(<<a,b>>) $$',
             '$$ varphi: <<alpha,beta>> |-> <<a,b>> $$, $$varphi$$ - bijekcja, $$ varphi in C^1(<<alpha,beta>>) $$',
             '$$ varphi(alpha)=a, varphi(beta)=b $$',
         ],
-        name: 'O całkowaniu przez podstawienie dla całek oznaczonych',
         thesis: [
             '$$ int_a^b f(x)dx = int_(alpha)^(beta) f(varphi(t)) * varphi\'(t)dt $$'
         ],
+        important: true,
     },
     {
         key: 3,
         category: [ 'integrals' ],
+        name: 'Wzór na pole obszaru ograniczonego dwoma funkcjami',
         prereqs: [
             '$$ D={(x,y) in RR^2: x in <<a,b>>, f(x)<=y<=g(x)}',
             '$$ f,g: <<a,b>> |-> RR $$ (ciągłe)',
@@ -55,6 +59,7 @@ const theorems: Theorem[] = [
     },
     {
         key: 4,
+        name: 'Wzór na pole obszaru określonego biegunowo',
         category: [ 'integrals' ],
         prereqs: [
             '$$ D={(x,y) in RR^2: x=rcosvarphi, y=rsinvarphi, alpha<=varphi<=beta, 0<=r<=r(varphi)} $$',
@@ -67,6 +72,7 @@ const theorems: Theorem[] = [
     },
     {
         key: 5,
+        name: 'Wzór na pole obszaru określonego parametrycznie',
         category: [ 'integrals' ],
         prereqs: [
             '$$ L: x=x(t), y=y(t), t in <<alpha,beta>> $$',
@@ -81,6 +87,7 @@ const theorems: Theorem[] = [
     },
     {
         key: 6,
+        name: 'Wzór na długość łuku określonego parametrycznie',
         category: [ 'integrals' ],
         prereqs: [
             'L - łuk gładki',
@@ -92,6 +99,7 @@ const theorems: Theorem[] = [
     },
     {
         key: 7,
+        name: 'Wzór na długość łuku określonego przez funkcję',
         category: [ 'integrals' ],
         prereqs: [
             '$$ y=f(x), x in <<a,b>> $$',
@@ -103,6 +111,7 @@ const theorems: Theorem[] = [
     },
     {
         key: 8,
+        name: 'Wzór na długość łuku określonego biegunowo',
         category: [ 'integrals' ],
         prereqs: [
             '$$ L: r=r(varphi), varphi in <<alpha, beta>> $$',
@@ -114,12 +123,12 @@ const theorems: Theorem[] = [
     },
     {
         key: 9,
-        category: [ 'integrals' ],
+        name: 'Wzór na objętość bryły obrotowej określonej przez funkcję',
+        category: [ 'integrals', 'solids-of-revolution', 'volume' ],
         prereqs: [
             '$$ L: y=f(x), x in <<a,b>> $$',
             '$$ f in C(<<a,b>>) $$',
         ],
-        name: '',
         thesis: [
             'Objętość bryły powstałej przez obrót krzywej L dookoła osi X wynosi:',
             '$$ |V| = pi * int_a^b f^2(x)dx $$',
@@ -127,11 +136,41 @@ const theorems: Theorem[] = [
     },
     {
         key: 10,
-        category: [ 'integrals' ],
-        prereqs: [],
-        name: '',
+        name: 'Wzór na objętość bryły obrotowej określonej parametrycznie',
+        category: [ 'integrals', 'solids-of-revolution', 'volume' ],
+        prereqs: [
+            '$$ L:{(x,=,x(t)),(y,=,y(t)):},t in <<alpha,beta>> $$',
+            '$$L$$ - łuk gładki',
+        ],
         thesis: [
-            
+            'Objętość bryły powstałej przez obrót krzywej L dookoła osi X wynosi:',
+            '$$ |V|=pi * int_alpha^beta y^2(t)x\'(t)dt $$',
+        ],
+    },
+    {
+        key: 11,
+        name: 'Wzór na pole powierzchni bryły obrotowej określonej przez funkcję',
+        category: [ 'integrals', 'solids-of-revolution', 'area' ],
+        prereqs: [
+            '$$ L: y=f(x), x in <<a,b>> $$',
+            '$$ f in C^1(<<a,b>>) $$',
+            '$$ vvv_(x in <<a,b>>) f(x) >= 0 $$',
+        ],
+        thesis: [
+            'Pole powierzchni bocznej powstałej przez obrót krzywej L dookoła osi OX wynosi:',
+            '$$ |S| = 2pi * int_a^b f(x)sqrt(1 + (f\'(x))^2)dx $$',
+        ],
+    },
+    {
+        key: 12,
+        name: 'Wzór na pole powierzchni bryły obrotowej określonej parametrycznie',
+        category: [ 'integrals' ],
+        prereqs: [
+            '$$ L:{(x,=,x(t)),(y,=,y(t)):},t in <<alpha,beta>> $$',
+            '$$L$$ - łuk gładki, $$ vvv_(t in <<alpha,beta>>) y(t)>=0 $$',
+        ],
+        thesis: [
+            '$$ |S| = 2pi * int_alpha^beta y(t)sqrt((x\'(t))^2 + (y\'(t))^2)dt $$',
         ],
     }
 ];

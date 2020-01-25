@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { getTheorems } from '../../../services/theoremService';
-import { Theorem } from '../../../types/theorem';
-import { TheoremPanel } from '../TheoremPanel';
+import { TheoremPanel } from './TheoremPanel';
+import { Theorem } from '../../types/theorem';
+import { getTheorems } from '../../services/theoremService';
+import './TheoremList.scss';
 
-export function QuizQuestionPanel() {
+export function TheoremList() {
     const [ theorems, setTheorems ] = useState<Theorem[]>([]);
 
     useEffect(() => {
         (async () => {
-            const array = await getTheorems();
-            setTheorems(array);
-            // setTheorems(array.slice(array.length - 4));
+            setTheorems(await getTheorems());
         })();
     }, []);
 
@@ -19,8 +18,8 @@ export function QuizQuestionPanel() {
     ));
 
     return (
-        <div>
-            <div>
+        <div className="TheoremList">
+            <div className="TheoremList-list">
                 { theoremList }
             </div>
         </div>

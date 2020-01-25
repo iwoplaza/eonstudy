@@ -6,4 +6,5 @@ export interface Theorem {
     prereqs: string[],
     symbolic?: string,
     thesis: string[],
+    important?: boolean,
 }

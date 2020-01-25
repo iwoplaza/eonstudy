@@ -1,0 +1,14 @@
+.TheoremList {
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 50px;
+    overflow-y: scroll;
+
+    .TheoremList-list {
+        display: flex;
+        flex-direction: column;
+    }
+}

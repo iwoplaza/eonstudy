@@ -1,0 +1,29 @@
+.Header {
+    display: flex;
+    padding: 10px 15vw;
+    background-color: white;
+
+    a {
+        display: block;
+        margin: 0 5px;
+        padding: 10px 20px;
+        min-width: 70px;
+
+        text-align: center;
+        font-size: 1.2em;
+        text-decoration: none;
+        border: 2px solid white;
+        color: #999;
+
+        &:hover {
+            border: 2px solid #ddd;
+        }
+
+        &.active {
+            border: 2px solid black;
+            color: black;
+        }
+
+        transition: 0.1s ease-out all;
+    }
+}
