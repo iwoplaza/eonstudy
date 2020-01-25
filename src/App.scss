@@ -1,0 +1,18 @@
+.App {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "main main"
+        "footer footer";
+    grid-template-rows: auto 1fr auto;
+
+    .App-main-content {
+        grid-area: main;
+    }
+
+    & > .Footer {
+        grid-area: footer;
+    }
+}

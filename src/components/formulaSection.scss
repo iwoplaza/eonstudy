@@ -1,0 +1,30 @@
+.FormulaSection {
+    display: grid;
+    grid-template-areas: 
+        "visual head"
+        "visual formula";
+    grid-template-columns: 200px auto;
+    padding: 20px 60px;
+    background-color: #282c34;
+
+    .FormulaSection-header {
+        grid-area: head;
+        margin-bottom: 20px;
+        
+        h1 {
+            margin: 0;
+            color: white;
+            font-weight: normal;
+        }
+    }
+
+    .Canvas {
+        grid-area: visual;
+    }
+
+    .FormulaSection-formula {
+        grid-area: formula;
+        color: white;
+        font-size: 1.5em;
+    }
+}

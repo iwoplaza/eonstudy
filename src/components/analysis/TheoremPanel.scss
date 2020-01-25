@@ -1,0 +1,16 @@
+.TheoremPanel {
+    padding: 20px;
+    border-top: 5px solid black;
+
+    .TheoremPanel-name {
+        text-align: center;
+    }
+
+    .TheoremPanel-prereqs {
+        li {
+            p {
+                font-size: 1.3em;
+            }
+        }
+    }
+}
