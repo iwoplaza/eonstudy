@@ -1,7 +1,7 @@
 import React from 'react';
 import MathJax from 'react-mathjax2';
 import './formulaSection.scss';
-import { Canvas } from './canvas';
+import { Canvas } from '../canvas';
 
 // const ascii = 'U = 1/(R_(si) + sum_(i=1)^n(s_n/lambda_n) + R_(se))';
 const color1 = '\\color{#00aaff}';

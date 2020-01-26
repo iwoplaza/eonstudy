@@ -193,6 +193,19 @@ export function getTheorems(): Promise<Theorem[]> {
     return Promise.resolve(theorems);
 }
 
+export function getCategories(): Promise<string[]> {
+    const categories: string[] = [];
+    
+    theorems.forEach(t => 
+        t.category.forEach(c => {
+            if (!categories.includes(c))
+                categories.push(c);
+        })
+    );
+
+    return Promise.resolve(categories);
+}
+
 export function getRandomTheorem(predicate?: (t: Theorem) => boolean): Promise<Theorem> {
     const source = predicate ? theorems.filter(predicate) : theorems;
     return Promise.resolve(source[Math.floor(Math.random() * source.length)]);
