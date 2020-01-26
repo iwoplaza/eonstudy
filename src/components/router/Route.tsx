@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../store/types';
 
 export interface RouteProps {
-    page: string | null
+    page: string
     component: JSX.Element
 }
 

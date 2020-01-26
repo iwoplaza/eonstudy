@@ -2,6 +2,7 @@
   "name": "visual-formulas",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://iwoplaza.github.io/uni-learn",
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -15,7 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,8 +36,6 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.13.1",
-    "react-mathjax2": "0.0.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
@@ -42,6 +43,9 @@
     "@types/node": "^12.12.24",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
-    "@types/react-redux": "^7.1.7"
+    "@types/react-redux": "^7.1.7",
+    "gh-pages": "^2.2.0",
+    "node-sass": "^4.13.1",
+    "react-mathjax2": "0.0.2"
   }
 }

@@ -22,9 +22,10 @@ const theorems: Theorem[] = [
         prereqs: [
             '$$P$$ - przedział',
             '$$ f,g: P |-> RR $$',
-            '$$ vvv_(x in P) 0 <= f(x) <= g(x) $$'
+            '$$ AA_(x in P) 0 <= f(x) <= g(x) $$'
         ],
         name: 'O zbieżności całek',
+        symbolic: 'EE int_P g(x)dx => EE int_P f(x)dx',
         thesis: [
             'Jeśli istnieje całka $$ int_P g(x)dx $$, to istnieje również $$ int_P f(x)dx $$',
         ],
@@ -39,6 +40,7 @@ const theorems: Theorem[] = [
             '$$ varphi: <<alpha,beta>> |-> <<a,b>> $$, $$varphi$$ - bijekcja, $$ varphi in C^1(<<alpha,beta>>) $$',
             '$$ varphi(alpha)=a, varphi(beta)=b $$',
         ],
+        symbolic: 'int_a^b f(x)dx = int_(alpha)^(beta) f(varphi(t)) varphi\'(t)dt',
         thesis: [
             '$$ int_a^b f(x)dx = int_(alpha)^(beta) f(varphi(t)) * varphi\'(t)dt $$'
         ],
@@ -52,6 +54,7 @@ const theorems: Theorem[] = [
             '$$ D={(x,y) in RR^2: x in <<a,b>>, f(x)<=y<=g(x)}',
             '$$ f,g: <<a,b>> |-> RR $$ (ciągłe)',
         ],
+        symbolic: '|D|=int_a^b(g(x)-f(x))dx',
         thesis: [
             'Pole obszaru D jest równe ',
             '$$ |D|=int_a^b(g(x)-f(x))dx $$',
@@ -65,6 +68,7 @@ const theorems: Theorem[] = [
             '$$ D={(x,y) in RR^2: x=rcosvarphi, y=rsinvarphi, alpha<=varphi<=beta, 0<=r<=r(varphi)} $$',
             '$$ r(varphi) in C(<<alpha,beta>>) $$',
         ],
+        symbolic: '|D| = 1/2 int_(alpha)^(beta)r^2(varphi)dvarphi',
         thesis: [
             'Pole obszaru D jest równe:',
             '$$ |D| = 1/2 int_(alpha)^(beta)r^2(varphi)dvarphi $$',
@@ -78,8 +82,9 @@ const theorems: Theorem[] = [
             '$$ L: x=x(t), y=y(t), t in <<alpha,beta>> $$',
             '$$ x(t) in C^1(<<alpha,beta>>) $$',
             '$$ y(t) in C(<<alpha,beta>>) $$',
-            '$$ vvv_(t in <<alpha,beta>>) x\'(t)>0 $$',
+            '$$ AA_(t in <<alpha,beta>>) x\'(t)>0 $$',
         ],
+        symbolic: '|D|=int_alpha^beta y(t) x\'(t)dt',
         thesis: [
             'Pole obszaru D jest równe:',
             '$$ |D|=int_alpha^beta y(t)*x\'(t)dt $$',
@@ -92,9 +97,10 @@ const theorems: Theorem[] = [
         prereqs: [
             'L - łuk gładki',
         ],
+        symbolic: '|L| = int_alpha^beta sqrt((x\'(t))^2 + (y\'(t))^2)dt',
         thesis: [
             'Długość łuku L jest równa',
-            '$$ |L| = int_alpha^beta sqrt((x\'(t))^2 + (y\'(t))^2)dt$$',
+            '$$ |L| = int_alpha^beta sqrt((x\'(t))^2 + (y\'(t))^2)dt $$',
         ],
     },
     {
@@ -105,6 +111,7 @@ const theorems: Theorem[] = [
             '$$ y=f(x), x in <<a,b>> $$',
             '$$ f in C^1(<<a,b>>) $$',
         ],
+        symbolic: '|L| = int_a^b sqrt(1 + (f\'(x))^2)dx',
         thesis: [
             '$$ |L| = int_a^b sqrt(1 + (f\'(x))^2)dx $$'
         ],
@@ -117,6 +124,7 @@ const theorems: Theorem[] = [
             '$$ L: r=r(varphi), varphi in <<alpha, beta>> $$',
             '$$ r(varphi) in C^1(<<alpha, beta>>) $$',
         ],
+        symbolic: '|L| = int_alpha^beta sqrt((r(varphi))^2 + (r\'(varphi))^2)dvarphi',
         thesis: [
             '$$ |L| = int_alpha^beta sqrt((r(varphi))^2 + (r\'(varphi))^2)dvarphi $$'
         ],
@@ -129,6 +137,7 @@ const theorems: Theorem[] = [
             '$$ L: y=f(x), x in <<a,b>> $$',
             '$$ f in C(<<a,b>>) $$',
         ],
+        symbolic: '|V| = pi int_a^b f^2(x)dx',
         thesis: [
             'Objętość bryły powstałej przez obrót krzywej L dookoła osi X wynosi:',
             '$$ |V| = pi * int_a^b f^2(x)dx $$',
@@ -142,6 +151,7 @@ const theorems: Theorem[] = [
             '$$ L:{(x,=,x(t)),(y,=,y(t)):},t in <<alpha,beta>> $$',
             '$$L$$ - łuk gładki',
         ],
+        symbolic: '|V| = pi int_alpha^beta y^2(t)x\'(t)dt',
         thesis: [
             'Objętość bryły powstałej przez obrót krzywej L dookoła osi X wynosi:',
             '$$ |V|=pi * int_alpha^beta y^2(t)x\'(t)dt $$',
@@ -154,8 +164,9 @@ const theorems: Theorem[] = [
         prereqs: [
             '$$ L: y=f(x), x in <<a,b>> $$',
             '$$ f in C^1(<<a,b>>) $$',
-            '$$ vvv_(x in <<a,b>>) f(x) >= 0 $$',
+            '$$ AA_(x in <<a,b>>) f(x) >= 0 $$',
         ],
+        symbolic: '|S| = 2pi int_a^b f(x)sqrt(1 + (f\'(x))^2)dx',
         thesis: [
             'Pole powierzchni bocznej powstałej przez obrót krzywej L dookoła osi OX wynosi:',
             '$$ |S| = 2pi * int_a^b f(x)sqrt(1 + (f\'(x))^2)dx $$',
@@ -167,8 +178,9 @@ const theorems: Theorem[] = [
         category: [ 'integrals' ],
         prereqs: [
             '$$ L:{(x,=,x(t)),(y,=,y(t)):},t in <<alpha,beta>> $$',
-            '$$L$$ - łuk gładki, $$ vvv_(t in <<alpha,beta>>) y(t)>=0 $$',
+            '$$L$$ - łuk gładki, $$ AA_(t in <<alpha,beta>>) y(t)>=0 $$',
         ],
+        symbolic: '|S| = 2pi int_alpha^beta y(t)sqrt((x\'(t))^2 + (y\'(t))^2)dt',
         thesis: [
             '$$ |S| = 2pi * int_alpha^beta y(t)sqrt((x\'(t))^2 + (y\'(t))^2)dt $$',
         ],
@@ -181,6 +193,7 @@ export function getTheorems(): Promise<Theorem[]> {
     return Promise.resolve(theorems);
 }
 
-export function getRandomTheorem(): Promise<Theorem> {
-    return Promise.resolve(theorems[Math.floor(Math.random() * theorems.length)]);
+export function getRandomTheorem(predicate?: (t: Theorem) => boolean): Promise<Theorem> {
+    const source = predicate ? theorems.filter(predicate) : theorems;
+    return Promise.resolve(source[Math.floor(Math.random() * source.length)]);
 }

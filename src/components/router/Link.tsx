@@ -7,7 +7,7 @@ import { combineClasses } from '../../helpers/classNameHelper';
 export interface LinkProps {
     children?: ReactNode
     className?: string
-    to: string | null
+    to: string
 }
 
 export function Link({ className, children, to }: LinkProps) {

@@ -21,7 +21,7 @@ export function constructUrlFromParams({ page }: RouteParams): string {
 export function useRouteToPage() {
     const dispatch = useDispatch();
 
-    return (pageName: string | null) => {
+    return (pageName: string) => {
         let url = constructUrlFromParams({ page: pageName });
 
         window.history.pushState({
@@ -46,14 +46,14 @@ export function Router({ children }: RouterProps) {
     
     useEffect(() => {
         const { page } = extractParamsFromUrl(window.location.href);
-        dispatch(changePage(page));
+        dispatch(changePage(page || ''));
     }, [ dispatch ]);
 
     useEffect(() => {
         const handlePopState = (e: PopStateEvent) => {
             if (e.state) {
                 const { page } = extractParamsFromUrl(e.state.url);
-                dispatch(changePage(page));
+                dispatch(changePage(page || ''));
             }
         };
         window.addEventListener('popstate', handlePopState);

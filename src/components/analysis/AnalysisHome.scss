@@ -1,9 +1,17 @@
 .AnalysisHome {
+    display: flex;
+    flex-direction: column;
     height: 100%;
 
     .AnalysisHome-subpage-links {
-        a {
-            display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+
+        .SectionLink {
+            margin: 10px 0;
+            min-width: 300px;
         }
     }
 }

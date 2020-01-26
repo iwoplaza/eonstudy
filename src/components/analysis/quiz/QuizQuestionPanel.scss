@@ -1,5 +1,45 @@
 .QuizQuestionPanel {
+    display: grid;
+    grid-template-areas:
+        "q q"
+        "o o"
+        "s n";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr auto;
+    height: 100%;
+
     .QuizQuestionPanel-question {
+        grid-area: q;
+        display: flex;
+        align-items: center;
         font-size: 1.5em;
+    }
+
+    .QuizQuestionPanel-options {
+        grid-area: o;
+        flex: 1 1;
+    }
+
+    .QuizQuestionPanel-next-button {
+        grid-area: n;
+        margin-bottom: 30px;
+        padding: 10px 40px;
+        background-color: rgb(56, 116, 228);
+        color: white;
+        border: none;
+    }
+
+    .QuizQuestionPanel-score {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: s;
+        height: auto;
+        margin-bottom: 30px;
+        padding: 5px;
+        margin-right: 10px;
+        color: black;
+        border: 1px solid black;
+        font-size: 1em;
     }
 }
