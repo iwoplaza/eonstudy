@@ -1,18 +1,46 @@
 .TheoremPanel {
-    padding: 20px;
-    margin: 10px 0;
+    display: grid;
+    grid-template-areas: 
+        "name name"
+        "prereq-h prereq"
+        "thesis-h thesis";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    padding: 10px 20px;
+    margin: 5px 0;
     box-shadow: -1px 7px 20px 0px rgba(0, 0, 0, 0.1);
 
     background-color: white;
     color: black;
 
     .TheoremPanel-name {
+        grid-area: name;
         font-size: 1.3em;
         text-align: center;
         color: black;
     }
 
+    .TheoremPanel-prereqs-header {
+        grid-area: prereq-h;
+    }
+
     .TheoremPanel-prereqs {
-        margin-bottom: 50px;
+        grid-area: prereq;
+        margin: 0;
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
+
+    .TheoremPanel-thesis-header {
+        grid-area: thesis-h;
+    }
+
+    .TheoremPanel-thesis-header, .TheoremPanel-prereqs-header {
+        padding-right: 30px;
+        color: #aaa;
+    }
+
+    .TheoremPanel-thesis {
+        grid-area: thesis;
     }
 }

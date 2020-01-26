@@ -1,4 +1,5 @@
 import { Theorem } from '../types/theorem';
+import { generateUniqueIndices } from '../helpers/randomHelper';
 
 const theorems: Theorem[] = [
     {
@@ -6,12 +7,12 @@ const theorems: Theorem[] = [
         category: [ 'integrals' ],
         prereqs: [
             '$$ f in C(<<a,b>>) $$',
-            'F jest funkcją pierwotną funkcji f na <a,b>'
+            '$$F$$ jest funkcją pierwotną funkcji $$f$$ na $$<<a,b>>$$'
         ],
         name: 'Newtona-Leibniza',
         symbolic: 'int_a^b f(x)dx = F(b)-F(a)',
         thesis: [
-            'Całka Riemanna funkcji f na przedziale [a,b] jest równa całce oznaczonej (w sensie Newtona) na [a,b].',
+            'Całka Riemanna funkcji $$f$$ na przedziale $$<<a,b>>$$ jest równa całce oznaczonej (w sensie Newtona) na $$<<a,b>>$$.',
             '$$ int_a^b f(x)dx = F(b)-F(a) $$',
         ],
         important: true,
@@ -209,4 +210,9 @@ export function getCategories(): Promise<string[]> {
 export function getRandomTheorem(predicate?: (t: Theorem) => boolean): Promise<Theorem> {
     const source = predicate ? theorems.filter(predicate) : theorems;
     return Promise.resolve(source[Math.floor(Math.random() * source.length)]);
+}
+
+export function getRandomTheorems(amount: number, predicate?: (t: Theorem) => boolean): Promise<Theorem[]> {
+    const source = predicate ? theorems.filter(predicate) : theorems;
+    return Promise.all(generateUniqueIndices(amount, source.length).map(i => source[i]));
 }

@@ -27,9 +27,11 @@ export function TheoremPanel({ theorem }: TheoremPanelParams) {
                 <h1 className="TheoremPanel-name">
                     { theorem.name }
                 </h1>
+                <div className="TheoremPanel-prereqs-header">Zał:</div>
                 <ul className="TheoremPanel-prereqs">
                     { prereqElements }
                 </ul>
+                <div className="TheoremPanel-thesis-header">Teza:</div>
                 <div className="TheoremPanel-thesis">
                     {
                         theorem.thesis.map((line, index) => (<div key={index}>
