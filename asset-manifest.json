@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/uni-learn/static/css/main.71f47fc0.chunk.css",
+    "main.js": "/uni-learn/static/js/main.e0278239.chunk.js",
+    "main.js.map": "/uni-learn/static/js/main.e0278239.chunk.js.map",
+    "runtime-main.js": "/uni-learn/static/js/runtime-main.bbaff127.js",
+    "runtime-main.js.map": "/uni-learn/static/js/runtime-main.bbaff127.js.map",
+    "static/js/2.f2b2b86a.chunk.js": "/uni-learn/static/js/2.f2b2b86a.chunk.js",
+    "static/js/2.f2b2b86a.chunk.js.map": "/uni-learn/static/js/2.f2b2b86a.chunk.js.map",
+    "index.html": "/uni-learn/index.html",
+    "precache-manifest.5ff42b5c8e52265667d5fad22de0fd15.js": "/uni-learn/precache-manifest.5ff42b5c8e52265667d5fad22de0fd15.js",
+    "service-worker.js": "/uni-learn/service-worker.js",
+    "static/css/main.71f47fc0.chunk.css.map": "/uni-learn/static/css/main.71f47fc0.chunk.css.map",
+    "static/js/2.f2b2b86a.chunk.js.LICENSE": "/uni-learn/static/js/2.f2b2b86a.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bbaff127.js",
+    "static/js/2.f2b2b86a.chunk.js",
+    "static/css/main.71f47fc0.chunk.css",
+    "static/js/main.e0278239.chunk.js"
+  ]
+}
