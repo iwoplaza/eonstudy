@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/eonstudy/precache-manifest.fa54092d517ce89aa7d04e5bc0500f96.js"
+  "/eonstudy/precache-manifest.a515ede9c7bc5867229d11e351c25ce1.js"
 );
 
 self.addEventListener('message', (event) => {
