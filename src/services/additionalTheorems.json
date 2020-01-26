@@ -1,0 +1,221 @@
+[
+    {
+        "category": [ "polynomials", "WW" ], 
+        "prereqs": [
+            "$$ W(x) $$ jest wielomianem."
+        ],
+        "name": "Bézouta",
+        "author": [ "Bézout" ],
+        "thesis": [
+            "$$ a $$ jest pierwiastkiem $$ W(x) <=> x-a | W(x) $$"
+        ],
+        "important": true
+    },
+    {
+        "category": [ "functions" ], 
+        "prereqs": [
+            "$$ f: X -> Y $$"
+        ],
+        "name": "Suriekcja / funkcja 'na'",
+        "thesis": [
+            "f jest suriekcją $$ <=> AA_(y in Y) EE_(x in X) y=f(x) $$"
+        ]
+    },
+    {
+        "category": [ "functions" ], 
+        "prereqs": [
+            "$$ f: X -> Y $$"
+        ],
+        "name": "Iniekcja / funkcja różnowartościowa",
+        "thesis": [
+            "f jest iniekcją $$ <=> AA_(x_1, x_2 in X) (x_1 != x_2 => f(x_1) != f(x_2)) or (f(x_1)=f(x_2) => x_1=x_2) $$"
+        ]
+    },
+    {
+        "category": [ "limits", "sequences" ], 
+        "prereqs": [
+            "$$ g in RR $$"
+        ],
+        "name": "Definicja Cauchy'ego granicy właściwej ",
+        "symbolic": "lim_(n->oo) a_n=g <=> AA epsilon>0   EEn_0 in NN    AAn>=n_0  |a_n-g|<epsilon",
+        "thesis": [
+            "$$ lim_(n->oo) a_n=g <=> AA _(epsilon>0)   EE_(n_0 in NN)    AA_(n>=n_0)  |a_n-g|<epsilon $$"
+        ],
+        "important": true
+    },
+    {
+        "category": [ "limits", "sequences" ], 
+        "prereqs": [
+            "$$ (a_n), (b_n)$$ - ciągi liczbowe",
+            "$$ lim_(n->oo) a_n=a $$",
+            "$$ lim_(n->oo) b_n=b $$"
+        ],
+        "name": "Twierdzenie o sumie, różnicy, iloczynie i ilorazie granicy ciągów",
+        "thesis": [
+            "1. $$ lim_(n->oo) (a_n + b_n) = a + b $$",
+            "2. $$ lim_(n->oo) (a_n - b_n) = a - b $$",
+            "3. $$ lim_(n->oo) (a_n * b_n) = a * b $$",
+            "4. $$ lim_(n->oo) (a_n / b_n) = a / b $$"
+        ],
+        "important": true
+    },
+    {
+        "category": [ "limits", "sequences" ], 
+        "prereqs": [
+            "1. Ciąg $$(a_n)$$ jest ograniczony od góry i jest niemalejący",
+            "2. Ciąg $$(a_n)$$ jest ograniczony od dołu i jest nierosnący"
+        ],
+        "name": "Twierdzenie o ciągu ograniczonym i monotonicznym",
+        "thesis": [
+            "ciąg $$(a_n)$$ jest zbieżny"
+        ],
+        "important": true
+    },
+    {
+        "category": [ "limits", "sequences" ], 
+        "prereqs": [
+            "$$EE_( n_0 in NN) AA_(n >= n_0) a_n <= b_n <= c_n $$",
+            "$$ lim_(n->oo) a_n= lim_(n->oo) c_n =g $$"
+        ],
+        "name": "Twierdzenie o trzech ciągach",
+        "thesis": [
+            "$$ lim_(n->oo) b_n = g $$"
+        ],
+        "conclusions": [
+            "Jeśli ciąg $$ (a_n) $$ jest ograniczony , ciąg $$ (b_n) $$ jest zbieżny do 0, to :",
+            "$$ lim_(n->oo) (a_n * b_n) = 0 $$"
+        ],
+        "important": true
+    },
+    {
+        "category": [ "limits", "sequences", "subsequence" ], 
+        "prereqs": [
+            "$$ (a_n)_(n in NN) $$ -ciąg "
+        ],
+        "name": "Twierdzenie (o granicy podciągu)",
+        "thesis": [
+            "Jeśli ciąg $$ (a_n) $$ jest zbieżny do granicy g, to każdy jego podciąg jest zbieżny do granicy g."
+        ],
+        "important": true
+    },
+    {
+        "category": [ "limits", "sequences", "subsequence" ], 
+        "prereqs": [
+            "$$ (a_n)_(n in NN) $$ -ciąg "
+        ],
+        "name": "Twierdzenie Bolzano-Weierstrassa",
+        "author": [
+            "Weierstrass",
+            "Bolzano"
+        ],
+        "thesis": [
+            "Jeśli ciąg $$ (a_n) $$ jest ograniczony, tzn. jeśli istnieje taka liczba M , że $$ |a_n| <= M $$ dla każdej liczby naturalnej n, to ma on podciąg zbieżny (do granicy właściwej)."
+        ],
+        "important": true
+    },
+    {
+        "category": [ "limits", "functions" ], 
+        "prereqs": [
+            "$$ f: D_f -> RR $$",
+            "f jest określona na pewnym sąsiedztwie punktu $$ x_0 $$",
+            "$$ x_n!=x_0 $$"
+        ],
+        "name": "Definicja Heinego granicy funkcji",
+        "author": [ "Heine" ],
+        "thesis": [
+            "$$ lim_(x->x_0) f(x) = g <=> AA (x_n) sub D_f [ lim_(n->oo) x_n =x_0 =>lim_(n->oo) f(x_n) = g] $$"
+        ],
+        "important": true
+    },
+    {
+        "category": [ "limits", "functions" ], 
+        "prereqs": [
+            "$$ x_0 in RR $$",
+            "$$ g in RR $$"
+        ],
+        "name": "Definicja Cauchy'ego granicy funkcji",
+        "author": [ "Cauchy" ],
+        "thesis": [
+            "$$ lim_(x->x_0) f(x) = g <=> AA_(epsilon > 0) EE_(delta>0) AA_(x in D_f) [0<|x-x_0|<delta => |f(x)-g|<epsilon] $$"
+        ],
+        "important": true
+    },
+    {
+        "category": [ "limits", "functions" ],
+        "name": "Warunek wystarczający i konieczny istnienia granicy funkcji",
+        "thesis": [
+            "$$f$$ ma granicę w $$x_0 <=> lim_(x->x_0^-) f(x) = lim_(x->x_0^+) f(x) = g,$$ wtedy $$lim_(x->x_0) f(x) = g $$"
+        ],
+        "important": true
+    },
+    {
+        "category": [ "limits", "functions" ], 
+        "prereqs": [
+            "$$f,g$$ - funkcje określone na pewnym sąsiedztwie $$ x_0 $$",
+            "$$ lim_(x->x_0) f(x) = a $$",
+            "$$ lim_(x->x_0) g(x) = b $$"
+        ],
+        "name": "Twierdzenie o działaniach arytmetycznych na granicach funkcji",
+        "thesis": [
+            "1. $$ lim_(x->x_0) (f(x)+g(x)) = a + b $$",
+            "2. $$ lim_(x->x_0) (f(x)-g(x)) = a - b $$",
+            "3. $$ lim_(x->x_0) (f(x)*g(x)) = a * b $$",
+            "4. $$ lim_(x->x_0) (f(x)/g(x)) = a / b $$ (o ile $$b!=0$$ i $$g(x)!=0$$ w pewnym sąsiedztwie $$x_0$$"
+        ]
+    },
+    {
+        "category": [ "limits", "functions" ], 
+        "prereqs": [
+            "$$ lim_(x->x_0) f(x) = y_0 $$",
+            "$$ lim_(y->y_0) g(y) = z_0 $$",
+            "$$ AA _(x in S(x_0, delta)) f(x)!=y_0"
+        ],
+        "name": "Twierdzenie o granicy funkcji złożonej",
+        "thesis": [
+            "$$ lim_(x->x_0) (g@f)(x) = lim_(x->x_0) g(f(x)) = z_o $$"
+        ]
+    },
+    {
+        "category": [ "limits", "functions" ], 
+        "prereqs": [
+            "$$f$$ jest ciągła w $$x_0$$",
+            "$$f$$ jest określona w pewnym otoczeniu punktu $$x_0$$",
+            "a) $$ f(x_0) > 0 $$",
+            "b) $$ f(x_0) < 0 $$"
+
+        ],
+        "name": "Twierdzenie o lokalnym zachowaniu znaku",
+        "thesis": [
+            "a) Istnieje takie otoczenie $$ U_1 sub U $$ punktu $$x_0$$, w którym $$AA _(x in U) x > 0 $$",
+            "b) Istnieje takie otoczenie $$ U_1 sub U $$ punktu $$x_0$$, w którym $$AA _(x in U) x < 0 $$"
+        ],
+        "important": true
+    },
+    {
+        "category": [ "limits", "functions" ], 
+        "prereqs": [
+            "$$ f in C(<<a,b>>) $$ - zbiór funkcji ciągłych na zbiorze $$<<a,b>>$$",
+            "$$ f(a) != f(b) $$",
+            "$$c$$ - dowolna liczba pomiędzy $$f(a)$$ i $$f(b)$$"
+        ],
+        "name": "Twierdzenie o przyjmowaniu wartości pośrednich / własność Darboux",
+        "author": [ "Darboux" ],
+        "thesis": [
+            " $$ AA _(c in (f(a),f(b))) EE _(x_0 in (a,b)) f(x)=c $$"
+        ],
+        "important": true
+    },
+    {
+        "category": [ "limits", "functions" ], 
+        "prereqs": [
+            "$$ f in C(<<a,b>>)$$ - $$f$$ jest ciągła na $$<<a,b>>$$"
+        ],
+        "name": "Twierdzenie Weierstrassa o osiąganiu kresów",
+        "author": [ "Weierstrass" ],
+        "thesis": [
+            "$$ EE _(x_1 in <<a,b>>) f(x_1)= \"sup\" {f(x), x in <<a,b>>} $$",
+            "$$ EE _(x_2 in <<a,b>>) f(x_2)= \"inf\" {f(x), x in <<a,b>>} $$"
+        ],
+        "important": true
+    }
+]

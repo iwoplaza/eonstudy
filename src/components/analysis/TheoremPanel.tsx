@@ -9,11 +9,11 @@ export interface TheoremPanelParams {
 }
 
 export function TheoremPanel({ theorem }: TheoremPanelParams) {
-    const prereqElements = theorem.prereqs.map((prereq, index) => (
+    const prereqElements = theorem.prereqs ? theorem.prereqs.map((prereq, index) => (
         <li key={index}>
             <ComplexText text={typeof(prereq) === 'string' ? prereq : prereq[0]} />
         </li>
-    ));
+    )) : [];
     
     return (
         <MathJax.Context input="ascii" options={ {

@@ -11,6 +11,12 @@
         font-size: 10vh;
         text-align: center;
         color: white;
+
+        font-weight: normal;
+
+        strong {
+            font-weight: bold;
+        }
     }
 
     .HomePage-subpages {

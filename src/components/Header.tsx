@@ -5,7 +5,7 @@ import './Header.scss';
 export function Header() {
     return (
         <header className="Header">
-            <h1>EonStudy</h1>
+            <h1>Eon<strong>Study</strong></h1>
             <Link to="">Home</Link>
             <Link to="analysis">Analiza</Link>
             <Link to="algebra">Algebra</Link>

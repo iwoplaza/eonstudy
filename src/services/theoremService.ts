@@ -1,5 +1,6 @@
 import { Theorem } from '../types/theorem';
 import { generateUniqueIndices } from '../helpers/randomHelper';
+import additionalTheorems from './additionalTheorems.json';
 
 const theorems: Theorem[] = [
     {
@@ -77,6 +78,19 @@ const theorems: Theorem[] = [
     },
     {
         key: 5,
+        name: 'Wzór na długość łuku określonego biegunowo',
+        category: [ 'integrals' ],
+        prereqs: [
+            '$$ L: r=r(varphi), varphi in <<alpha, beta>> $$',
+            '$$ r(varphi) in C^1(<<alpha, beta>>) $$',
+        ],
+        symbolic: '|L| = int_alpha^beta sqrt((r(varphi))^2 + (r\'(varphi))^2)dvarphi',
+        thesis: [
+            '$$ |L| = int_alpha^beta sqrt((r(varphi))^2 + (r\'(varphi))^2)dvarphi $$'
+        ],
+    },
+    {
+        key: 6,
         name: 'Wzór na pole obszaru określonego parametrycznie',
         category: [ 'integrals' ],
         prereqs: [
@@ -92,7 +106,7 @@ const theorems: Theorem[] = [
         ],
     },
     {
-        key: 6,
+        key: 7,
         name: 'Wzór na długość łuku określonego parametrycznie',
         category: [ 'integrals' ],
         prereqs: [
@@ -105,47 +119,7 @@ const theorems: Theorem[] = [
         ],
     },
     {
-        key: 7,
-        name: 'Wzór na długość łuku określonego przez funkcję',
-        category: [ 'integrals' ],
-        prereqs: [
-            '$$ y=f(x), x in <<a,b>> $$',
-            '$$ f in C^1(<<a,b>>) $$',
-        ],
-        symbolic: '|L| = int_a^b sqrt(1 + (f\'(x))^2)dx',
-        thesis: [
-            '$$ |L| = int_a^b sqrt(1 + (f\'(x))^2)dx $$'
-        ],
-    },
-    {
         key: 8,
-        name: 'Wzór na długość łuku określonego biegunowo',
-        category: [ 'integrals' ],
-        prereqs: [
-            '$$ L: r=r(varphi), varphi in <<alpha, beta>> $$',
-            '$$ r(varphi) in C^1(<<alpha, beta>>) $$',
-        ],
-        symbolic: '|L| = int_alpha^beta sqrt((r(varphi))^2 + (r\'(varphi))^2)dvarphi',
-        thesis: [
-            '$$ |L| = int_alpha^beta sqrt((r(varphi))^2 + (r\'(varphi))^2)dvarphi $$'
-        ],
-    },
-    {
-        key: 9,
-        name: 'Wzór na objętość bryły obrotowej określonej przez funkcję',
-        category: [ 'integrals', 'solids-of-revolution', 'volume' ],
-        prereqs: [
-            '$$ L: y=f(x), x in <<a,b>> $$',
-            '$$ f in C(<<a,b>>) $$',
-        ],
-        symbolic: '|V| = pi int_a^b f^2(x)dx',
-        thesis: [
-            'Objętość bryły powstałej przez obrót krzywej L dookoła osi X wynosi:',
-            '$$ |V| = pi * int_a^b f^2(x)dx $$',
-        ],
-    },
-    {
-        key: 10,
         name: 'Wzór na objętość bryły obrotowej określonej parametrycznie',
         category: [ 'integrals', 'solids-of-revolution', 'volume' ],
         prereqs: [
@@ -159,7 +133,47 @@ const theorems: Theorem[] = [
         ],
     },
     {
-        key: 11,
+        key: 9,
+        name: 'Wzór na pole powierzchni bryły obrotowej określonej parametrycznie',
+        category: [ 'integrals' ],
+        prereqs: [
+            '$$ L:{(x,=,x(t)),(y,=,y(t)):},t in <<alpha,beta>> $$',
+            '$$L$$ - łuk gładki, $$ AA_(t in <<alpha,beta>>) y(t)>=0 $$',
+        ],
+        symbolic: '|S| = 2pi int_alpha^beta y(t)sqrt((x\'(t))^2 + (y\'(t))^2)dt',
+        thesis: [
+            '$$ |S| = 2pi * int_alpha^beta y(t)sqrt((x\'(t))^2 + (y\'(t))^2)dt $$',
+        ],
+    },
+    {
+        key: 12,
+        name: 'Wzór na długość łuku określonego przez funkcję',
+        category: [ 'integrals' ],
+        prereqs: [
+            '$$ y=f(x), x in <<a,b>> $$',
+            '$$ f in C^1(<<a,b>>) $$',
+        ],
+        symbolic: '|L| = int_a^b sqrt(1 + (f\'(x))^2)dx',
+        thesis: [
+            '$$ |L| = int_a^b sqrt(1 + (f\'(x))^2)dx $$'
+        ],
+    },
+    {
+        key: 13,
+        name: 'Wzór na objętość bryły obrotowej określonej przez funkcję',
+        category: [ 'integrals', 'solids-of-revolution', 'volume' ],
+        prereqs: [
+            '$$ L: y=f(x), x in <<a,b>> $$',
+            '$$ f in C(<<a,b>>) $$',
+        ],
+        symbolic: '|V| = pi int_a^b f^2(x)dx',
+        thesis: [
+            'Objętość bryły powstałej przez obrót krzywej L dookoła osi X wynosi:',
+            '$$ |V| = pi * int_a^b f^2(x)dx $$',
+        ],
+    },
+    {
+        key: 14,
         name: 'Wzór na pole powierzchni bryły obrotowej określonej przez funkcję',
         category: [ 'integrals', 'solids-of-revolution', 'area' ],
         prereqs: [
@@ -172,23 +186,14 @@ const theorems: Theorem[] = [
             'Pole powierzchni bocznej powstałej przez obrót krzywej L dookoła osi OX wynosi:',
             '$$ |S| = 2pi * int_a^b f(x)sqrt(1 + (f\'(x))^2)dx $$',
         ],
-    },
-    {
-        key: 12,
-        name: 'Wzór na pole powierzchni bryły obrotowej określonej parametrycznie',
-        category: [ 'integrals' ],
-        prereqs: [
-            '$$ L:{(x,=,x(t)),(y,=,y(t)):},t in <<alpha,beta>> $$',
-            '$$L$$ - łuk gładki, $$ AA_(t in <<alpha,beta>>) y(t)>=0 $$',
-        ],
-        symbolic: '|S| = 2pi int_alpha^beta y(t)sqrt((x\'(t))^2 + (y\'(t))^2)dt',
-        thesis: [
-            '$$ |S| = 2pi * int_alpha^beta y(t)sqrt((x\'(t))^2 + (y\'(t))^2)dt $$',
-        ],
     }
 ];
 
-
+let lastIndex = theorems[theorems.length - 1].key - 1;
+additionalTheorems.forEach(a => theorems.push({
+    ...a,
+    key: lastIndex++,
+}));
 
 export function getTheorems(): Promise<Theorem[]> {
     return Promise.resolve(theorems);
