@@ -7,7 +7,7 @@
 
     .HomePage-title {
         display: block;
-        margin-bottom: 0.1em;
+        margin-bottom: 0em;
         font-size: 10vh;
         text-align: center;
         color: white;
@@ -19,6 +19,14 @@
         }
     }
 
+    .HomePage-message {
+        margin: 0;
+        margin-bottom: 2em;
+        font-size: 3vh;
+        color: white;
+        opacity: 0.7;
+    }
+
     .HomePage-subpages {
         display: flex;
 
@@ -26,8 +34,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 150px;
-            height: 150px;
+            width: 130px;
+            height: 130px;
             margin: 10px;
             font-size: 1.5em;
             text-decoration: none;

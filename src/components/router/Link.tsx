@@ -20,7 +20,6 @@ export function Link({ className, children, to }: LinkProps) {
         routeToPage(to);
     };
 
-    console.log(to, page);
     const classes = combineClasses({
         active: to === page || (to ? page?.startsWith(to) : false) || false,
     });

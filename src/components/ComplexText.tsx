@@ -10,7 +10,7 @@ export function ComplexText({ text }: ComplexTextParams) {
 
     let textMode = true;
     let mathNodeKey = 0;
-    while (text != '') {
+    while (text !== '') {
         let deliPos = text.indexOf('$$');
         if (deliPos === -1) {
             deliPos = text.length;

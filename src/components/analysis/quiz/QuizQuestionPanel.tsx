@@ -16,14 +16,14 @@ export function QuizQuestionPanel() {
             setSelectedAnswer(option);
             setQuestionsAnswered(questionsAnswered + 1);
 
-            if (option == question?.correctOption) {
+            if (option === question?.correctOption) {
                 setScore(score + 1);
             }
         }
     };
 
     const onNextQuestion = () => {
-        if (selectedAnswer == -1) {
+        if (selectedAnswer === -1) {
             setQuestionsAnswered(questionsAnswered + 1);
         }
         setSelectedAnswer(-1);
@@ -33,7 +33,7 @@ export function QuizQuestionPanel() {
         })();
     };
 
-    const displayedScore = () => questionsAnswered == 0 ? '' : `${score} / ${questionsAnswered} (${Math.floor(score/questionsAnswered*100)}%)`;
+    const displayedScore = () => questionsAnswered === 0 ? '' : `${score} / ${questionsAnswered} (${Math.floor(score/questionsAnswered*100)}%)`;
 
     useEffect(() => {
         (async () => {
@@ -64,8 +64,8 @@ export function QuizQuestionPanel() {
                             key={index}
                             desc={q.desc}
                             onClick={() => onAnswerSelected(index)}
-                            correct={selectedAnswer != -1 && index == question.correctOption}
-                            wrong={selectedAnswer == index && selectedAnswer != question.correctOption}
+                            correct={selectedAnswer !== -1 && index === question.correctOption}
+                            wrong={selectedAnswer === index && selectedAnswer !== question.correctOption}
                         />
                     ))
                 }

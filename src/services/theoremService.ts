@@ -146,7 +146,7 @@ const theorems: Theorem[] = [
         ],
     },
     {
-        key: 12,
+        key: 10,
         name: 'Wzór na długość łuku określonego przez funkcję',
         category: [ 'integrals' ],
         prereqs: [
@@ -159,7 +159,7 @@ const theorems: Theorem[] = [
         ],
     },
     {
-        key: 13,
+        key: 11,
         name: 'Wzór na objętość bryły obrotowej określonej przez funkcję',
         category: [ 'integrals', 'solids-of-revolution', 'volume' ],
         prereqs: [
@@ -173,7 +173,7 @@ const theorems: Theorem[] = [
         ],
     },
     {
-        key: 14,
+        key: 12,
         name: 'Wzór na pole powierzchni bryły obrotowej określonej przez funkcję',
         category: [ 'integrals', 'solids-of-revolution', 'area' ],
         prereqs: [
@@ -189,7 +189,7 @@ const theorems: Theorem[] = [
     }
 ];
 
-let lastIndex = theorems[theorems.length - 1].key - 1;
+let lastIndex = theorems[theorems.length - 1].key + 1;
 additionalTheorems.forEach(a => theorems.push({
     ...a,
     key: lastIndex++,

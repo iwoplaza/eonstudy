@@ -1,5 +1,8 @@
+@import "../variables.scss";
+
 .Header {
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: 10px 15vw;
     background-color: black;
@@ -15,27 +18,88 @@
         }
     }
 
-    a {
-        display: block;
-        margin: 0 5px;
-        padding: 10px 20px;
-        min-width: 70px;
+    .Header-burger-toggle {
+        background-color: black;
+        padding: 0 0.37em;
+        border: 0.2em solid white;
 
-        text-align: center;
-        font-size: 1.2em;
-        text-decoration: none;
-        border: 2px solid black;
-        color: #999;
-
-        &:hover {
-            border: 2px solid #333;
+        span {
+            display: block;
+            width: 2.0em;
+            height: 0.2em;
+            margin: 0.5em 0;
+            background-color: white;
         }
 
-        &.active {
-            border: 2px solid white;
-            color: white;
+        &.toggled {
+            border: 0.2em solid red;
+
+            span {
+                background-color: red;
+            }
         }
 
-        transition: 0.1s ease-out all;
+        &.toggled + .Header-menu {
+            display: block;
+        }
+    }
+
+    .Header-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background-color: black;
+
+        .Header-links {
+            a {
+                display: block;
+                margin: 0 0px;
+                padding: 10px 20px;
+                min-width: 70px;
+
+                text-align: center;
+                font-size: 1.2em;
+                text-decoration: none;
+                border: 2px solid black;
+                color: #999;
+
+                &:hover {
+                    border: 2px solid #333;
+                }
+
+                &.active {
+                    border: 2px solid white;
+                    color: white;
+                }
+
+                transition: 0.1s ease-out all;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $sm-breakpoint) {
+    .Header {
+        justify-content: flex-start;
+
+        .Header-burger-toggle {
+            display: none;
+        }
+
+        .Header-menu {
+            display: block;
+            position: static;
+            
+            .Header-links {
+                display: flex;
+
+                a {
+                    margin: 0 5px;
+                }
+            }
+        }
     }
 }

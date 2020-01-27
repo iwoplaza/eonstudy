@@ -2,7 +2,6 @@ import React from 'react';
 import { Route } from '../router/Route';
 import { AnalysisQuiz } from './quiz/AnalysisQuiz';
 import { TheoremList } from './TheoremList';
-import { Link } from '../router/Link';
 import './AnalysisHome.scss';
 import { SectionLink } from '../SectionLink';
 import { IntegralList } from './IntegralList';
