@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from './router/Link';
 import './Header.scss';
 import { combineClasses } from '../helpers/classNameHelper';
+import { subjects } from '../subjects';
+
 
 export function Header() {
     const [ droppedDown, setDroppedDown ] = useState(false);
@@ -20,8 +22,9 @@ export function Header() {
             <div className="Header-menu">
                 <div className="Header-links" onClick={ () => setDroppedDown(false) }>
                     <Link to="">Home</Link>
-                    <Link to="analysis">Analiza</Link>
-                    <Link to="algebra">Algebra</Link>
+                    {subjects.map(s => (
+                        <Link to={s.pageKey}>{s.name}</Link>
+                    ))}
                 </div>
             </div>
         </header>

@@ -4,17 +4,21 @@ import { Footer } from './components/Footer';
 import { Router } from './components/router/Router';
 import { Route } from './components/router/Route';
 import { Header } from './components/Header';
-import { AnalysisHome } from './components/analysis/AnalysisHome';
+import { SubjectPage } from './components/SubjectPage';
 import { HomePage } from './components/HomePage';
+import { subjects } from './subjects';
 
-const App: React.FC = () => {
+
+function App() {
     return (
         <Router>
             <div className="App">
                 <Header />
                 <main className="App-main-content">
                     <Route page="" component={<HomePage />} />
-                    <Route page="analysis*" component={<AnalysisHome />} />
+                    {subjects.map(s => (
+                        <Route key={s.pageKey} page={`${s.pageKey}*`} component={<SubjectPage {...s} />} />
+                    ))}
                 </main>
                 <Footer />
             </div>
